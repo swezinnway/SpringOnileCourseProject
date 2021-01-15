@@ -9,7 +9,7 @@
         <div class="row mb-2">
           <div class="col-sm-6 col-6">
             <h1 class="m-0">Level List</h1>
-              <h6> <a href="<c:url value='/create_level'/>">Create New</a></h6>
+              <h6> <a href="<c:url value='/level/create_level'/>">Create New</a></h6>
           </div><!-- /.col -->
           <div class="col-sm-6 col-6">
             <ol class="breadcrumb float-sm-right">
@@ -38,7 +38,7 @@
 				<tr>
 				<td>${row.count}</td>
 				<td>${its.level_name}</td>
-				     
+				   <td><a href="${pageContext.request.contextPath}/level/delete/${its.level_id}">Delete</a>  </td>
 				</tr>
 					</c:forEach>
                   </tbody>

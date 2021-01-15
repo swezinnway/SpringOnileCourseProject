@@ -32,6 +32,11 @@ public class LevelService implements LevelInterface{
 		// TODO Auto-generated method stub
 		return  levelRepository.getLevelListByCourse(course_id);
 	}
+	@Override
+	public void delete(Long level_id) {
+		// TODO Auto-generated method stub
+		levelRepository.deleteById(level_id);
+	}
 	
 	
 	

@@ -5,20 +5,25 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bestbright.onlie_course.model.Level;
 import com.bestbright.onlie_course.repository.CourseRepository;
 import com.bestbright.onlie_course.repository.LevelRepository;
+import com.bestbright.onlie_course.service.LevelService;
 
 @Controller
+@RequestMapping("/level")
 public class LevelController {
 
 	@Autowired
 	private LevelRepository levelRepository;
 	@Autowired
 	private CourseRepository courseRepository;
-	
+	@Autowired
+	private LevelService levelService;
 	
 	@GetMapping("/create_level")
 	public String createLevel(Model model) {
@@ -33,12 +38,18 @@ public class LevelController {
 		
 		model.addAttribute("levelList",levelRepository.findAll());
 		
-		return "redirect:/level_list";
+		return "redirect:/level/level_list";
 	}
 	
 	@GetMapping("/level_list")
 	public String showlevel(Model model) {
 		model.addAttribute("levelList",levelRepository.findAll());
 		return "level_list";
+	}
+	
+	@GetMapping("/delete/{level_id}")
+	public String deletelevel(@PathVariable Long level_id) {
+		levelService.delete(level_id);
+		return "redirect:/level/level_list";
 	}
 }

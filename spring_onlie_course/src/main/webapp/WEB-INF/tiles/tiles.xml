@@ -55,6 +55,7 @@
     </definition>
     
      <definition name="create_level" extends="layout.admin">
+      
         <put-attribute name="body" value="/WEB-INF/admin/create_level.jsp" />
     </definition>
     

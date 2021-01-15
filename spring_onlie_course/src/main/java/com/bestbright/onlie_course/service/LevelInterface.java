@@ -9,4 +9,6 @@ public interface LevelInterface {
 	void saveLevel(LevelDTO leveldto);
 
 	public List<Level> getLevellistbycourse(Long course_id);
+
+	void delete(Long level_id);
 }
